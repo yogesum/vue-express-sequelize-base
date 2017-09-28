@@ -1,0 +1,54 @@
+{
+  "name": "vue-express-sequelize-base",
+  "version": "1.0.0",
+  "description": "Server side rendering with sequelize, express, nuxt.js",
+  "main": "server/index.js",
+  "scripts": {
+    "dev": "backpack dev",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "test": "ava",
+    "build": "nuxt build && backpack build",
+    "start": "node build/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/yogesum/vue-express-sequelize-base.git"
+  },
+  "keywords": [
+    "nuxt.js",
+    "VueJS",
+    "express",
+    "sequelize",
+    "server-side-render",
+    "boilerplate"
+  ],
+  "author": "Yogesh Choudhary <yogesum@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yogesum/vue-express-sequelize-base/issues"
+  },
+  "homepage": "https://github.com/yogesum/vue-express-sequelize-base#readme",
+  "dependencies": {
+    "axios": "^0.16.2",
+    "body-parser": "^1.18.1",
+    "express": "^4.15.4",
+    "express-session": "^1.15.5",
+    "mysql2": "^1.4.2",
+    "nuxt": "^1.0.0-rc11",
+    "sequelize": "^4.8.2",
+    "sequelize-cli": "^3.0.0-2"
+  },
+  "pre-commit": [
+    "lint",
+    "test"
+  ],
+  "devDependencies": {
+    "ava": "^0.22.0",
+    "backpack-core": "^0.4.2",
+    "eslint": "^4.6.1",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-plugin-html": "^3.2.1",
+    "eslint-plugin-import": "^2.7.0",
+    "precommit-hook": "^3.0.0"
+  }
+}

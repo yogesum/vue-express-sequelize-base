@@ -1,0 +1,7 @@
+node_modules
+coverage
+dist
+build
+npm-debug.log
+
+.nuxt
