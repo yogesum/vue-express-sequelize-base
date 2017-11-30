@@ -11,5 +11,6 @@ module.exports = {
       { hid: 'description', content: 'Server side rendering with sequelize, express, nuxt.js' },
     ],
   },
+  plugins: ['~plugins/buefy'],
 };
 

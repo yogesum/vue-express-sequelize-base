@@ -9,7 +9,7 @@
 export default {
   middleware: 'auth',
   fetch({ store, redirect }) {
-    if (!store.state.authUser) redirect('/');
+    if (!store.state.user) redirect('/login');
   },
 };
 </script>

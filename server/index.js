@@ -1,6 +1,7 @@
 import { Nuxt, Builder } from 'nuxt';
 import express from 'express';
 import expressSetup from './config/express';
+import db from './db';
 
 // import api from './api';
 import config from '../nuxt.config';
@@ -26,6 +27,7 @@ if (config.dev) {
 }
 
 expressSetup(app, nuxt.render);
+db.setup();
 
 app.listen(port, host);
 logger.log(`Server listening on ${host}:${port}`);

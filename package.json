@@ -30,11 +30,16 @@
   "homepage": "https://github.com/yogesum/vue-express-sequelize-base#readme",
   "dependencies": {
     "axios": "^0.16.2",
+    "bcrypt": "^1.0.3",
     "body-parser": "^1.18.1",
+    "buefy": "^0.5.3",
+    "connect-ensure-login": "^0.1.1",
     "express": "^4.15.4",
     "express-session": "^1.15.5",
     "mysql2": "^1.4.2",
     "nuxt": "^1.0.0-rc11",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
     "sequelize": "^4.8.2",
     "sequelize-cli": "^3.0.0-2"
   },
