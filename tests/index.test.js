@@ -26,9 +26,10 @@ test.before('Init Nuxt.js', async () => {
 });
 
 test('Route / exits and render HTML', async (t) => {
-  const context = {};
+  const email = 'yogesum@gmail.com';
+  const context = { req: { user: { id: 1, email } } };
   const { html } = await nuxt.renderRoute('/', context);
-  t.true(html.includes('<h1>Hello world!</h1>'));
+  t.true(html.includes(email));
 });
 
 // Close the nuxt server

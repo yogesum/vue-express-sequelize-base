@@ -1,7 +1,7 @@
 module.exports = {
   srcDir: './client',
   build: {
-    vendor: ['axios'],
+    vendor: ['axios', 'element-ui'],
   },
   head: {
     title: 'VueJs boilerplate',
@@ -11,6 +11,7 @@ module.exports = {
       { hid: 'description', content: 'Server side rendering with sequelize, express, nuxt.js' },
     ],
   },
-  plugins: ['~plugins/buefy'],
+  css: ['element-ui/lib/theme-chalk/index.css'],
+  plugins: ['~plugins/element-ui'],
 };
 
