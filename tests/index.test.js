@@ -1,6 +1,6 @@
-import test from 'ava';
-import { Nuxt, Builder } from 'nuxt';
-import { resolve } from 'path';
+const test = require('ava');
+const { Nuxt, Builder } = require('nuxt');
+const { resolve } = require('path');
 
 const logger = console;
 

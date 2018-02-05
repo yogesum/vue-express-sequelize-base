@@ -1,9 +1,13 @@
-import Sequelize from 'sequelize';
+const Sequelize = require('sequelize');
 
-import config from '../config';
+const config = require('../config');
 
 const define = { freezeTableName: true };
-const sequelize = new Sequelize(Object.assign({ define }, config));
+const sequelize = new Sequelize({
+  define,
+  ...config,
+  operatorsAliases: false,
+});
 
 Object.getPrototypeOf(sequelize).setup = function setup() {
   [...Object.entries(this.models)].forEach((model) => {
@@ -11,4 +15,4 @@ Object.getPrototypeOf(sequelize).setup = function setup() {
   });
 };
 
-export default sequelize;
+module.exports = sequelize;

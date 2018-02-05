@@ -1,10 +1,10 @@
-import bodyParser from 'body-parser';
-import session from 'express-session';
-import passport from 'passport';
-import auth from '../auth';
-import api from '../api';
+const bodyParser = require('body-parser');
+const session = require('express-session');
+const passport = require('passport');
+const auth = require('../auth');
+const api = require('../api');
 
-export default function expressSetup(app, render) {
+module.exports = function expressSetup(app, render) {
   app.set('env', process.env.NODE_ENV || 'development');
 
   // Body parser, to access req.body
@@ -25,4 +25,4 @@ export default function expressSetup(app, render) {
   app.use('/auth', auth);
   app.use('/api', api);
   app.use(render);
-}
+};

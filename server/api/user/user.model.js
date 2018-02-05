@@ -1,6 +1,8 @@
-import bcrypt from 'bcrypt';
-import Sequelize, { DataTypes } from 'sequelize';
-import sequelize from '../../db';
+const bcrypt = require('bcrypt');
+const Sequelize = require('sequelize');
+const sequelize = require('../../db');
+
+const { DataTypes } = Sequelize;
 
 class User extends Sequelize.Model {
   static associate() {
@@ -26,7 +28,7 @@ class User extends Sequelize.Model {
   }
 }
 
-export default User.init({
+module.exports = User.init({
   firstName: DataTypes.STRING,
   lastName: DataTypes.STRING,
   email: {

@@ -4,11 +4,13 @@
   "description": "Server side rendering with sequelize, express, nuxt.js",
   "main": "server/index.js",
   "scripts": {
-    "dev": "backpack dev",
+    "dev": "node server",
+    "dev:inspect": "node --inspect server",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "test": "ava",
-    "build": "nuxt build && backpack build",
-    "start": "node build/main.js"
+    "build": "nuxt build",
+    "start": "nuxt build && node server",
+    "validate": "npm ls"
   },
   "repository": {
     "type": "git",
@@ -49,7 +51,7 @@
   ],
   "devDependencies": {
     "ava": "^0.22.0",
-    "backpack-core": "^0.4.2",
+    "chokidar": "^2.0.0",
     "eslint": "^4.6.1",
     "eslint-config-airbnb": "^15.1.0",
     "eslint-plugin-html": "^3.2.1",

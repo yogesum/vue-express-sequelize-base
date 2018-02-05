@@ -1,6 +1,6 @@
-import bcrypt from 'bcrypt';
-import passport from 'passport';
-import { Strategy as LocalStrategy } from 'passport-local';
+const bcrypt = require('bcrypt');
+const passport = require('passport');
+const { Strategy: LocalStrategy } = require('passport-local');
 
 async function localAuthenticate(User, email, password, done) {
   const user = await User.find({ where: { email } });
@@ -17,7 +17,7 @@ async function localAuthenticate(User, email, password, done) {
   }
 }
 
-export default {
+module.exports = {
   setup(User) {
     passport.use(new LocalStrategy({
       usernameField: 'email',

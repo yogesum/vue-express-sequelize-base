@@ -1,10 +1,10 @@
-import { Nuxt, Builder } from 'nuxt';
-import express from 'express';
-import expressSetup from './config/express';
-import db from './db';
+const { Nuxt, Builder } = require('nuxt');
+const express = require('express');
+const expressSetup = require('./config/express');
+const db = require('./db');
 
 // import api from './api';
-import config from '../nuxt.config';
+const config = require('../nuxt.config');
 
 const app = express();
 const logger = console;
@@ -23,6 +23,16 @@ if (config.dev) {
   builder.build().catch((e) => {
     logger.error(e);
     process.exit(1);
+  });
+
+  const watcher = require('chokidar').watch(__dirname); // eslint-disable-line
+  watcher.on('ready', () => {
+    watcher.on('all', () => {
+      logger.log('Clearing server/ module cache from server');
+      Object.keys(require.cache).forEach((id) => {
+        if (new RegExp(__dirname).test(id)) delete require.cache[id];
+      });
+    });
   });
 }
 

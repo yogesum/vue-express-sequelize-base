@@ -1,5 +1,5 @@
-import express from 'express';
-import { index, show, create, update, destroy } from './user.controller';
+const express = require('express');
+const { index, show, create, update, destroy } = require('./user.controller');
 
 const router = express.Router();
 
@@ -13,4 +13,4 @@ router.patch('/:id', update);
 
 router.delete('/', destroy);
 
-export default router;
+module.exports = router;

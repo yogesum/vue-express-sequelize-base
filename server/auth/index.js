@@ -1,7 +1,7 @@
-import express from 'express';
-import LocalStrategy from './local/passport';
-import User from '../api/user/user.model';
-import local from './local';
+const express = require('express');
+const LocalStrategy = require('./local/passport');
+const User = require('../api/user/user.model');
+const local = require('./local');
 
 const router = express.Router();
 
@@ -12,4 +12,4 @@ router.use('/logout', (req, res) => {
   res.redirect('/');
 });
 
-export default router;
+module.exports = router;
