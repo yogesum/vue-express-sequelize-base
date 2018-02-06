@@ -5,7 +5,7 @@ el-row(:gutter='20')
     p.error(v-if="form.error") {{ form.error }}
     p: i
       span To login, use
-      b yogesum@gmail.com
+      b  yogesum@gmail.com
       span  as email and
       b  SuperAdmin
       span  as password.

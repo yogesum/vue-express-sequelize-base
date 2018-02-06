@@ -3,6 +3,9 @@ module.exports = {
   build: {
     vendor: ['axios', 'element-ui'],
   },
+  router: {
+    middleware: ['authenticated'],
+  },
   head: {
     title: 'VueJs boilerplate',
     meta: [
