@@ -1,15 +1,15 @@
-const express = require('express');
-const LocalStrategy = require('./local/passport');
-const User = require('../api/user/user.model');
-const local = require('./local');
+const express = require('express')
+const LocalStrategy = require('./local/passport')
+const User = require('../api/user/model')
+const local = require('./local')
 
-const router = express.Router();
+const router = express.Router()
 
-LocalStrategy.setup(User);
-router.use('/local', local);
+LocalStrategy.setup(User)
+router.use('/local', local)
 router.use('/logout', (req, res) => {
-  req.logout();
-  res.redirect('/');
-});
+  req.logout()
+  res.redirect('/')
+})
 
-module.exports = router;
+module.exports = router

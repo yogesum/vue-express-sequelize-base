@@ -38,7 +38,7 @@ export default {
   data() {
     return {
       form: { error: '', email: 'yogesum@gmail.com', password: 'SuperAdmin' },
-    };
+    }
   },
-};
+}
 </script>

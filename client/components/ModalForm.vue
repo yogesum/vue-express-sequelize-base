@@ -6,27 +6,28 @@
       </header>
       <section class="modal-card-body">
         <b-field label="Email">
-            <b-input
-                type="email"
-                v-model="email"
-                placeholder="Your email"
-                required>
-            </b-input>
+          <b-input
+            v-model="email"
+            type="email"
+            placeholder="Your email"
+            required/>
         </b-field>
 
         <b-field label="Password">
           <b-input
-              type="password"
-              v-model="password"
-              password-reveal
-              placeholder="Your password"
-              required>
-          </b-input>
+            v-model="password"
+            type="password"
+            password-reveal
+            placeholder="Your password"
+            required/>
         </b-field>
 
       </section>
       <footer class="modal-card-foot">
-        <button class="button" type="button" @click="$parent.close()">Close</button>
+        <button
+          class="button"
+          type="button"
+          @click="$parent.close()">Close</button>
         <button class="button is-primary">Login</button>
       </footer>
     </div>
@@ -35,8 +36,17 @@
 
 <script>
 export default {
-  props: ['email', 'password'],
-};
+  props: {
+    email: {
+      type: String,
+      default: '',
+    },
+    password: {
+      type: String,
+      default: '',
+    },
+  },
+}
 </script>
 
 <style scoped>

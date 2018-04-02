@@ -1,3 +1,3 @@
 export default function ({ store, redirect }) {
-  if (!store.state.user) redirect('/auth/login');
+  if (!store.state.user) redirect('/auth/login')
 }

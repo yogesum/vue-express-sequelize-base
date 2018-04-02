@@ -1,43 +1,17 @@
-const { Nuxt, Builder } = require('nuxt');
-const express = require('express');
-const expressSetup = require('./config/express');
-const db = require('./db');
+const express = require('express')
+const { host, port } = require('config')
 
-// import api from './api';
-const config = require('../nuxt.config');
+const expressSetup = require('./config/express')
+const nuxt = require('./config/nuxt')
+const db = require('./db')
 
-const app = express();
-const logger = console;
-const host = process.env.HOST || '127.0.0.1';
-const port = process.env.PORT || 3000;
+const app = express()
 
-// Set Nuxt.js options
-config.dev = !(app.env === 'production');
+expressSetup(app)
+app.use(nuxt.render) // render with nuxt
+app.listen(port, host) // start http listner
 
-// Instantiate nuxt.js
-const nuxt = new Nuxt(config);
+db.setup() // setup association between models
 
-// Build in development
-if (config.dev) {
-  const builder = new Builder(nuxt);
-  builder.build().catch((e) => {
-    logger.error(e);
-    process.exit(1);
-  });
-
-  const watcher = require('chokidar').watch(__dirname); // eslint-disable-line
-  watcher.on('ready', () => {
-    watcher.on('all', () => {
-      logger.log('Clearing server/ module cache from server');
-      Object.keys(require.cache).forEach((id) => {
-        if (new RegExp(__dirname).test(id)) delete require.cache[id];
-      });
-    });
-  });
-}
-
-expressSetup(app, nuxt.render);
-db.setup();
-
-app.listen(port, host);
-logger.log(`Server listening on ${host}:${port}`);
+const logger = console
+logger.log(`Server listening on ${host}:${port}`)

@@ -2,10 +2,27 @@
   "parserOptions": {
     "ecmaVersion": 8
   },
-  "plugins": [
-    "html"
-  ],
+  "env": {
+    "browser": true,
+    "node": true
+  },
   "extends": [
-    "airbnb/base"
-  ]
+    "airbnb/base",
+    "plugin:vue/recommended"
+  ],
+  "rules": {
+    "semi": [2, "never"],
+    "import/extensions": ["error", "always", {
+      js: "never",
+      vue: "never"
+    }]
+  },
+  "settings": {
+    "import/core-modules": ["vue", "vuex"],
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".vue"]
+      }
+    }
+  }
 }

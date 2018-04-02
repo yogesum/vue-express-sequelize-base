@@ -5,3 +5,6 @@ build
 npm-debug.log
 
 .nuxt
+.jshint*
+
+config/local-*.toml

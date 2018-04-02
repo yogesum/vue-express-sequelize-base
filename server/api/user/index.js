@@ -1,16 +1,41 @@
-const express = require('express');
-const { index, show, create, update, destroy } = require('./user.controller');
+const User = require('./model')
 
-const router = express.Router();
+const id = 'resourceUser' // since res.user is set by passport
 
-router.get('/', index);
-router.get('/:id', show);
+async function index() {
+  const data = await User.findAll()
+  return { data }
+}
 
-router.post('/', create);
+async function load({ params }) {
+  return User.findById(params[id])
+}
 
-router.put('/:id', update);
-router.patch('/:id', update);
+async function show({ resourceUser }) {
+  return { data: resourceUser }
+}
 
-router.delete('/', destroy);
+async function create({ body }) {
+  const data = await new User(body).save()
+  return { data }
+}
 
-module.exports = router;
+async function update({ body, resourceUser }) {
+  await resourceUser.update(body)
+  return { data: resourceUser }
+}
+
+async function destroy({ resourceUser }) {
+  await resourceUser.destroy()
+  return { ok: true }
+}
+
+module.exports = {
+  id,
+  index,
+  load,
+  show,
+  create,
+  update,
+  destroy,
+}

@@ -24,24 +24,39 @@ module.exports = {
       password: {
         type: Sequelize.CHAR(60).BINARY,
       },
-      createdBy: {
+      creatorId: {
         type: Sequelize.INTEGER,
+        references: {
+          model: 'User',
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL',
       },
       createdAt: {
         allowNull: false,
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
         type: Sequelize.DATE,
       },
-      updatedBy: {
+      updaterId: {
         type: Sequelize.INTEGER,
+        references: {
+          model: 'User',
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL',
       },
       updatedAt: {
         allowNull: false,
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'),
         type: Sequelize.DATE,
       },
-      deletedBy: {
+      deleterId: {
         type: Sequelize.INTEGER,
+        references: {
+          model: 'User',
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL',
       },
       deletedAt: {
         type: Sequelize.DATE,
@@ -49,5 +64,5 @@ module.exports = {
     }),
 
   down: db => db.dropTable('User'),
-};
+}
 
